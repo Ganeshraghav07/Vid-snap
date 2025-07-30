@@ -106,8 +106,13 @@ def gallery():
     return render_template("gallery.html", reels=reels)
 
 
-# ------------------ DEV RUN ONLY ------------------
+import subprocess
+
 if __name__ == "__main__":
-    # Local development server (Windows safe). Production uses gunicorn main:app
+    # Start generate_process.py in background
+    subprocess.Popen(["python", "generate_process.py"])
+
+    # Start the Flask app
     app.run(debug=True)
+
 
