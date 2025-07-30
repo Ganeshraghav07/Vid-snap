@@ -1,0 +1,25 @@
+﻿services:
+  - type: web
+    name: vidsnap
+    env: python
+    buildCommand: |
+      apt-get update && apt-get install -y ffmpeg
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: gunicorn main:app --workers=2 --threads=4 --timeout=600
+    autoDeploy: true
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: UPLOAD_DIR
+        value: /var/data/user_uploads
+      - key: OUTPUT_DIR
+        value: /var/data/static/reels
+      - key: ELEVENLABS_API_KEY
+        sync: false
+    disk:
+      name: vidsnap-data
+      mountPath: /var/data
+      sizeGB: 5

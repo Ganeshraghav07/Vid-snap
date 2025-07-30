@@ -1,0 +1,230 @@
+:root {
+    --primary-color: #7f5af0;         /* Soft Electric Purple */
+    --secondary-color: #2cb67d;       /* Emerald Mint */
+    --accent-color: #f25f4c;          /* Warm Coral */
+    --background-color: #fdfdfd;      /* Clean White */
+    --card-color: #ffffff;            /* Pure White */
+    --neutral-color: #e5e7eb;         /* Light Grey */
+    --text-dark: #1f2937;             /* Charcoal */
+    --text-muted: #6b7280;            /* Muted Gray */
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --radius: 1rem;
+    --shadow: 0 10px 30px var(--shadow-color);
+    --transition: all 0.3s ease-in-out;
+}
+
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #f8fafc, #e2e8f0);
+    color: var(--text-color);
+}
+
+.music-input-group {
+    margin-top: 20px;
+}
+
+.music-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.music-input {
+    display: block;
+    padding: 8px;
+    width: 100%;
+}
+
+.music-hint {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 4px;
+}
+
+
+.upload-section {
+    padding: 6rem 1rem;
+    background: linear-gradient(to right, #f8fafc, #e2e8f0);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 150px;
+}
+
+.upload-container {
+    max-width: 900px;
+    width: 100%;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 3rem 2rem;
+    animation: fadeIn 0.6s ease;
+}
+
+.upload-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.upload-instructions {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--muted-color);
+    margin-bottom: 2rem;
+}
+
+.dropzone {
+    border: 3px dashed var(--primary-color);
+    border-radius: var(--border-radius);
+    background: #f9fafb;
+    padding: 3rem;
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer;
+    min-height: 220px;
+}
+
+.dropzone:hover {
+    background-color: #eef2ff;
+}
+
+.dropzone .dz-message {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.text-input-container {
+    margin: 2rem 0;
+}
+
+.text-input {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    font-size: 1rem;
+    background: #fff;
+    transition: var(--transition);
+    min-height: 120px;
+    resize: vertical;
+}
+
+.text-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.text-input::placeholder {
+    color: #9ca3af;
+}
+
+.file-input-group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.file-input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: 2px solid #d1d5db;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.file-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.add-file-btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.add-file-btn:hover {
+    background-color: #0891b2;
+}
+
+.remove-file-btn {
+    background-color: #ef4444;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-file-btn:hover {
+    background-color: #dc2626;
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 1rem;
+    width: 100%;
+    border: none;
+    border-radius: 50px;
+    margin-top: 2rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-4px);
+}
+
+.submit-btn:disabled {
+    background: #d1d5db;
+    cursor: not-allowed;
+}
+
+#fileInputs {
+    margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .file-input-group {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .remove-file-btn {
+        align-self: flex-end;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
