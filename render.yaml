@@ -23,3 +23,11 @@
       name: vidsnap-data
       mountPath: /var/data
       sizeGB: 5
+  - type: worker
+    name: vidsnap-generator
+    env: python
+    buildCommand: |
+      apt-get update && apt-get install -y ffmpeg
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: python generate_process.py
